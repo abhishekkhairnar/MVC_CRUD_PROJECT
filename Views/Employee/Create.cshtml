@@ -1,0 +1,210 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <h1>Add a new Employee</h1>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName">First Name</label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MiddleName">Middle Name</label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName">Last Name</label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success mt-2" />
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="form-group">
+                        <label asp-for="DOB">Date Of Birth</label>
+                        <input type="date" asp-for="DOB" class="form-control" />
+                        <span asp-validation-for="DOB" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Gender">Gender</label>
+                        <div>
+                            Male<input type="radio" value="Male" name="gender" asp-for="Gender" class="form-check-input" />
+                            Female<input type="radio" value="Female" name="gender" asp-for="Gender" class="form-check-input" />
+                        </div>
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Department">Department</label>
+                        <select asp-for="Department" class="form-select">
+                            <option>HR</option>
+                            <option>Technical</option>
+                            <option>Sales</option>
+                            <option>Management</option>
+                        </select>
+                        <span asp-validation-for="Department" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NationalID">National ID</label>
+                        <input asp-for="NationalID" class="form-control" />
+                        <span asp-validation-for="NationalID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HudumaNumber">Huduma Number</label>
+                        <input asp-for="HudumaNumber" class="form-control" />
+                        <span asp-validation-for="HudumaNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmployeeRole">Employee Role</label>
+                        <input asp-for="EmployeeRole" class="form-control" />
+                        <span asp-validation-for="EmployeeRole" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmployeeType">Employee Type</label>
+                        <div>
+                            Full-Time<input type="radio" name="emptype" value="FullTime" asp-for="EmployeeType" class="form-check-input" />
+                            Part-Time<input type="radio" name="emptype" value="PartTime" asp-for="EmployeeType" class="form-check-input" />
+                        </div>
+                        <span asp-validation-for="EmployeeType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Permenant">Permenant</label>
+                        <div>
+                            Yes<input type="radio" name="permenant" value="True" asp-for="Permenant" class="form-check-input" />
+                            No<input type="radio" name="permenant" value="False" asp-for="Permenant" class="form-check-input" />
+                        </div>
+                        <span asp-validation-for="Permenant" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermenantAddress">Permenant Address</label>
+                        <input asp-for="PermenantAddress" class="form-control" />
+                        <span asp-validation-for="PermenantAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MobileNo">Mobile Number</label>
+                        <input asp-for="MobileNo" class="form-control" />
+                        <span asp-validation-for="MobileNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailId">Email Address</label>
+                        <input asp-for="EmailId" class="form-control" />
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Disability">Disability</label>
+                        <div>
+                            Yes<input type="radio" name="disability" value="True" asp-for="Permenant" class="form-check-input" />
+                            No<input type="radio" name="disability" value="False" asp-for="Permenant" class="form-check-input" />
+                        </div>
+                        <span asp-validation-for="Disability" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PayAmount">Pay Amount</label>
+                        <input asp-for="PayAmount" class="form-control" />
+                        <span asp-validation-for="PayAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HumanResourceAllowance">Human Resource Allowance</label>
+                        <input asp-for="HumanResourceAllowance" class="form-control" />
+                        <span asp-validation-for="HumanResourceAllowance" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LeaveTravelAllowance">Leave Travel Allowance</label>
+                        <input asp-for="LeaveTravelAllowance" class="form-control" />
+                        <span asp-validation-for="LeaveTravelAllowance" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConveyanceAllowance">Conveyance Allowance</label>
+                        <input asp-for="ConveyanceAllowance" class="form-control" />
+                        <span asp-validation-for="ConveyanceAllowance" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MedicalAllowance">Medical Allowance</label>
+                        <input asp-for="MedicalAllowance" class="form-control" />
+                        <span asp-validation-for="MedicalAllowance" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HouseRentAllowance">House Rent Allowance</label>
+                        <input asp-for="HouseRentAllowance" class="form-control" />
+                        <span asp-validation-for="HouseRentAllowance" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HoursOfWork">Hours Of Work</label>
+                        <input asp-for="HoursOfWork" class="form-control" />
+                        <span asp-validation-for="HoursOfWork" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateOfJoining">Date Of Joining</label>
+                        <input type="date" asp-for="DateOfJoining" class="form-control" />
+                        <span asp-validation-for="DateOfJoining" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateOfExit">Date Of Exit</label>
+                        <input type="date" asp-for="DateOfExit" class="form-control" />
+                        <span asp-validation-for="DateOfExit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TaxRelief">Tax Relief</label>
+                        <input asp-for="TaxRelief" class="form-control" />
+                        <span asp-validation-for="TaxRelief" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName">User Name</label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <input type="password" asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Status">Status</label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>*@

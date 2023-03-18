@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "List of Employees";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.MiddleName)</th>
+                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <div class="d-flex flex-column">
+                            <td class="align-center">
+                                <a class="btn btn-primary mb-1" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-secondary mb-1"asp-controller="Employee" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.FirstName)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.MiddleName)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.LastName)</td>
+                        </div>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+@*<th>@Html.DisplayNameFor(model => model.DOB)</th>
+                    <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                    <th>@Html.DisplayNameFor(model => model.Department)</th>
+                    <th>@Html.DisplayNameFor(model => model.NationalID)</th>
+                    <th>@Html.DisplayNameFor(model => model.HudumaNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.EmployeeRole)</th>
+                    <th>@Html.DisplayNameFor(model => model.EmployeeType)</th>
+                    <th>@Html.DisplayNameFor(model => model.Permenant)</th>
+                    <th>@Html.DisplayNameFor(model => model.PermenantAddress)</th>
+                    <th>@Html.DisplayNameFor(model => model.MobileNo)</th>
+                    <th>@Html.DisplayNameFor(model => model.EmailId)</th>
+                    <th>@Html.DisplayNameFor(model => model.Disability)</th>
+                    <th>@Html.DisplayNameFor(model => model.PayAmount)</th>
+                    <th>@Html.DisplayNameFor(model => model.HumanResourceAllowance)</th>
+                    <th>@Html.DisplayNameFor(model => model.LeaveTravelAllowance)</th>
+                    <th>@Html.DisplayNameFor(model => model.ConveyanceAllowance)</th>
+                    <th>@Html.DisplayNameFor(model => model.MedicalAllowance)</th>
+                    <th>@Html.DisplayNameFor(model => model.HouseRentAllowance)</th>
+                    <th>@Html.DisplayNameFor(model => model.HoursOfWork)</th>
+                    <th>@Html.DisplayNameFor(model => model.DateOfJoining)</th>
+                    <th>@Html.DisplayNameFor(model => model.DateOfExit)</th>
+                    <th>@Html.DisplayNameFor(model => model.TaxRelief)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Password)</th>
+                    <th>@Html.DisplayNameFor(model => model.Status)</th>*@
+
+@*<td class="align-center">@Html.DisplayFor(modelItem => item.DOB)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Gender)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Department)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.NationalID)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.HudumaNumber)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.EmployeeRole)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.EmployeeType)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Permenant)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.PermenantAddress)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.MobileNo)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.EmailId)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Disability)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.PayAmount)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.HumanResourceAllowance)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.LeaveTravelAllowance)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.ConveyanceAllowance)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.MedicalAllowance)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.HouseRentAllowance)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.HoursOfWork)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.DateOfJoining)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.DateOfExit)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.TaxRelief)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.UserName)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Password)</td>
+                            <td class="align-center">@Html.DisplayFor(modelItem => item.Status)</td>*@
