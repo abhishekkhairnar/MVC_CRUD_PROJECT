@@ -9,6 +9,11 @@
         <div class="row">
             <div class="col-md-8 offset-2">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*<div class="form-group">
+                    <label asp-for="ProfilePicture">Profile Picture</label>
+                    <input asp-for="ProfilePicture" class="form-control" readonly />
+                    <img href="@Model.ProfilePicture" class="rounded" />
+                </div>*@
                 <div class="form-group">
                     <label asp-for="FirstName">First Name</label>
                     <input asp-for="FirstName" class="form-control" readonly />
@@ -21,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="LastName">Last Name</label>
-                <input asp-for="LastName" class="form-control" readonly />
+                    <input asp-for="LastName" class="form-control" readonly />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="form-group">

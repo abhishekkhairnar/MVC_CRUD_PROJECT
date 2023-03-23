@@ -23,13 +23,55 @@ namespace Assignment1.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("FirstName,MiddleName,LastName")]Employee employee)
+        public async Task<IActionResult> Create([FromForm]Employee employee)
         {
             if (!ModelState.IsValid)
             {
                 return View(employee);
             }
-            await _service.AddAsync(employee);
+            // create a new employee
+            Employee newEmployee = new() 
+            { 
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                MiddleName = employee.MiddleName
+            };
+
+            // create a photo list to store and upload files
+            List<Photo> photoList = new List<Photo>();
+            if(employee.Files.Count >= 0)
+            {
+                foreach (var formFile in employee.Files)
+                {
+                    if(formFile.Length >= 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await formFile.CopyToAsync(memoryStream);
+                            // upload the file if less than 2MB
+                            if(memoryStream.Length > 2097152)
+                            {
+                                // based on the upload file to create photo instance
+                                var newphoto = new Photo()
+                                {
+                                    Bytes = memoryStream.ToArray(),
+                                    FileExtension = Path.GetExtension(formFile.FileName),
+                                    Size = formFile.Length,
+                                };
+                                // add photo instance to the list
+                                photoList.Add(newphoto);
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("File", "The file is too large.");
+                            }
+                        }
+                    }
+                }
+            }
+            // assign the photos to to the employee using the navigation property
+            newEmployee.Photos = photoList;
+            await _service.AddAsync(newEmployee);
             return RedirectToAction(nameof(Index));
         }
         // Get : Employee/Details/id
@@ -95,8 +137,7 @@ namespace Assignment1.Controllers
             }
 
             await _service.DeleteAsync(id);
-            return RedirectToAction(nameof(Index));
-         
+            return RedirectToAction(nameof(Index));         
         }
     }
 }
